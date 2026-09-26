@@ -1,4 +1,7 @@
 # toolbox-export
+
+[![asciicast](https://asciinema.org/a/1266632.svg)](https://asciinema.org/a/1266632)
+
 Script for exporting applications from toolbox or any other containers.
 
 add this to your rc(.bashrc .zshrc / .profile ) files ...
@@ -22,3 +25,5 @@ toolbox-export firefox
 
 just some small scripts ment for my personal use.
 built around [container-toolbx](https://github.com/containers/toolbox)
+
+
