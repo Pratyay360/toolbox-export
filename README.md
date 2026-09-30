@@ -11,7 +11,7 @@ don't just run any Script available on the internet. read it first unless you ar
 export PATH="$HOME/.local/bin:$HOME/.local/toolbox:$PATH"
 
 ```bash
-curl -fsSL https://github.com/Pratyay360/toolbox-export/raw/refs/heads/main/install.sh | bash
+curl -fsSL https://github.com/Pratyay360/toolbox-export/raw/refs/heads/python/install.sh | bash
 ```
 ## Usage
 Enter the container
