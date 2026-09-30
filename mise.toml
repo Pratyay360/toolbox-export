@@ -1,0 +1,8 @@
+[tools]
+go = "1.27.1"
+"go:github.com/spf13/cobra-cli" = "latest"
+golangci-lint = "latest"
+goreleaser = "latest"
+
+[deps]
+go = { auto = true }
