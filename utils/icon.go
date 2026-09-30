@@ -13,11 +13,11 @@ import (
 )
 
 func ExportLauncher(app string) error {
-	if err := checkContainer("Not running from toolbox"); err != nil {
+	if err := checkContainer("not running from toolbox"); err != nil {
 		return err
 	}
 	if app == "" {
-		return errors.New("No application name")
+		return errors.New("no application name")
 	}
 
 	home, err := os.UserHomeDir()
@@ -141,7 +141,7 @@ func getDesktopFiles(app string) ([]string, error) {
 	}
 
 	if len(matched) == 0 {
-		return nil, errors.New("No application found")
+		return nil, errors.New("no application found")
 	}
 	return matched, nil
 }
@@ -174,18 +174,26 @@ func findIconFiles(root, name string) []string {
 	return out
 }
 
-func copyFile(src, dst string) error {
+func copyFile(src, dst string) (err error) {
 	in, err := os.Open(src)
 	if err != nil {
 		return err
 	}
-	defer in.Close()
+	defer func() {
+		if closeErr := in.Close(); closeErr != nil {
+			err = errors.Join(err, fmt.Errorf("close source %s: %w", src, closeErr))
+		}
+	}()
 
 	out, err := os.Create(dst)
 	if err != nil {
 		return err
 	}
-	defer out.Close()
+	defer func() {
+		if closeErr := out.Close(); closeErr != nil {
+			err = errors.Join(err, fmt.Errorf("close destination %s: %w", dst, closeErr))
+		}
+	}()
 
 	_, err = io.Copy(out, in)
 	return err

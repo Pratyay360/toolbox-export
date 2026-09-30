@@ -5,21 +5,20 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-
 	"path/filepath"
 	"strings"
 )
 
 func ExportBinary(app string) error {
 	if app == "" {
-		return errors.New("No application name provided. Usage: export-bin <app_name>")
+		return errors.New("no application name provided; usage: toolbox-export binary <application>")
 	}
-	if err := checkContainer("Not running inside a toolbox container"); err != nil {
+	if err := checkContainer("not running inside a toolbox container"); err != nil {
 		return err
 	}
 	containerName, ok := GetContainerName()
 	if !ok {
-		return errors.New("Could not find container name in /run/.containerenv")
+		return errors.New("could not find container name in /run/.containerenv")
 	}
 
 	home, err := os.UserHomeDir()
@@ -40,7 +39,7 @@ func ExportBinary(app string) error {
 
 	binName := filepath.Base(containerBinPath)
 	aliasPath := filepath.Join(binDir, binName)
-	wrapper := fmt.Sprintf("#!/bin/sh\n\tif [ -f /run/.containerenv ]; then\n  exec flatpak-spawn --host toolbox run -c \"%s\" %s \"$@\"\n                elif [ -z \"$container\" ] ; then\n                    exec /usr/bin/toolbox run -c %s %s \"$@\"\n                else\n                    exec toolbox run -c %s %s \"$@\"\n                fi\n            ", containerName, containerBinPath, containerName, containerBinPath, containerName, containerBinPath)
+	wrapper := fmt.Sprintf("#!/bin/sh\n\tif [ -f /run/.containerenv ]; then\n  exec flatpak-spawn --host toolbox run -c \"%s\" %s \"$@\"\n                elif [ -z \"$container\" ] ; then\n                    exec /usr/bin/toolbox run -c %s %s \"$@\"\n                else\n                    exec podman exec -d %s %s \"$@\"\n                fi\n            ", containerName, containerBinPath, containerName, containerBinPath, containerName, containerBinPath)
 
 	if err := os.WriteFile(aliasPath, []byte(wrapper), 0o755); err != nil {
 		return err
