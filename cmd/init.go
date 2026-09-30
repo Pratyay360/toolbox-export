@@ -20,10 +20,17 @@ case ":$PATH:" in
 esac
 `
 
+const toolboxFishPathConfig = `
+# toolbox-export: add exported binaries to PATH
+if not contains $HOME/.local/toolbox $PATH
+    set -gx PATH $PATH $HOME/.local/toolbox
+end
+`
+
 var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "Initialize the toolbox binary directory and shell PATH",
-	Long:  `Create ~/.local/toolbox and add it to PATH in ~/.bashrc, ~/.zshrc, and ~/.profile.`,
+	Long:  `Create ~/.local/toolbox and add it to PATH in ~/.bashrc, ~/.zshrc, ~/.profile and ~/.config/fish/config.fish`,
 	Args:  cobra.NoArgs,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		home, err := os.UserHomeDir()
@@ -48,16 +55,25 @@ var initCmd = &cobra.Command{
 			cmd.Printf("Created directory: %s\n", folder)
 		}
 
-		for _, name := range []string{".bashrc", ".zshrc", ".profile"} {
-			rcPath := filepath.Join(home, name)
-			updated, err := addToolboxPath(rcPath)
+		targets := []struct {
+			path   string
+			config string
+		}{
+			{filepath.Join(home, ".bashrc"), toolboxPathConfig},
+			{filepath.Join(home, ".zshrc"), toolboxPathConfig},
+			{filepath.Join(home, ".profile"), toolboxPathConfig},
+			{filepath.Join(home, ".config", "fish", "config.fish"), toolboxFishPathConfig},
+		}
+
+		for _, t := range targets {
+			updated, err := addToolboxPath(t.path, t.config)
 			if err != nil {
 				return err
 			}
 			if updated {
-				cmd.Printf("Added toolbox PATH configuration to: %s\n", rcPath)
+				cmd.Printf("Added toolbox PATH configuration to: %s\n", t.path)
 			} else {
-				cmd.Printf("Toolbox PATH configuration already exists in: %s\n", rcPath)
+				cmd.Printf("Toolbox PATH configuration already exists in: %s\n", t.path)
 			}
 		}
 		cmd.Println("Open a new shell to apply the PATH changes.")
@@ -65,16 +81,20 @@ var initCmd = &cobra.Command{
 	},
 }
 
-func addToolboxPath(rcPath string) (bool, error) {
+func addToolboxPath(rcPath, config string) (bool, error) {
 	data, err := os.ReadFile(rcPath)
 	if err != nil && !os.IsNotExist(err) {
 		return false, fmt.Errorf("read shell startup file %s: %w", rcPath, err)
 	}
-	if strings.Contains(string(data), toolboxPathConfig) {
+	if strings.Contains(string(data), config) {
 		return false, nil
 	}
 
-	addition := toolboxPathConfig
+	if err := os.MkdirAll(filepath.Dir(rcPath), 0o755); err != nil {
+		return false, fmt.Errorf("create directory for %s: %w", rcPath, err)
+	}
+
+	addition := config
 	if len(data) > 0 && data[len(data)-1] != '\n' {
 		addition = "\n" + addition
 	}

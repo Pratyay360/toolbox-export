@@ -6,3 +6,6 @@ goreleaser = "latest"
 
 [deps]
 go = { auto = true }
+
+[tasks]
+release = "goreleaser release"
