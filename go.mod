@@ -1,4 +1,4 @@
-module github.com/pratyay360/toolbox-export
+module github.com/Pratyay360/toolbox-export
 
 go 1.27.1
 
