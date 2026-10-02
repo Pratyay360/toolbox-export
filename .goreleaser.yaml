@@ -44,7 +44,7 @@ homebrew_casks:
       branch: main
     description: Make applications installed inside Toolbx containers available on the host
     homepage: https://github.com/Pratyay360/toolbox-export
-    binary: toolbox-export
+    binaries: [toolbox-export]
 
 
 changelog:
