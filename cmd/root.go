@@ -18,7 +18,7 @@ package cmd
 import (
 	"os"
 
-	"github.com/pratyay360/toolbox-export/utils"
+	"github.com/Pratyay360/toolbox-export/utils"
 	"github.com/spf13/cobra"
 )
 

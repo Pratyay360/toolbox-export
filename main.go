@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/pratyay360/toolbox-export/cmd"
+import "github.com/Pratyay360/toolbox-export/cmd"
 
 func main() {
 	cmd.Execute()

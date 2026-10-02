@@ -6,21 +6,21 @@
 </p>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/stars/pratyay360/toolbox-export.svg?variant=secondary" /><img alt="GitHub Stars" src="https://shieldcn.dev/github/stars/pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/forks/pratyay360/toolbox-export.svg?variant=secondary" /><img alt="GitHub Forks" src="https://shieldcn.dev/github/forks/pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/watchers/pratyay360/toolbox-export.svg?variant=secondary" /><img alt="Watchers" src="https://shieldcn.dev/github/watchers/pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/branches/pratyay360/toolbox-export.svg?variant=ghost" /><img alt="Branches" src="https://shieldcn.dev/github/branches/pratyay360/toolbox-export.svg?variant=ghost&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/contributors/pratyay360/toolbox-export.svg?theme=emerald" /><img alt="Contributors" src="https://shieldcn.dev/github/contributors/pratyay360/toolbox-export.svg?theme=emerald&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/last-commit/pratyay360/toolbox-export.svg?variant=secondary" /><img alt="Last commit" src="https://shieldcn.dev/github/last-commit/pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/commits/pratyay360/toolbox-export.svg?variant=secondary" /><img alt="Commits" src="https://shieldcn.dev/github/commits/pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/open-issues/pratyay360/toolbox-export.svg?variant=secondary" /><img alt="Open issues" src="https://shieldcn.dev/github/open-issues/pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/closed-issues/pratyay360/toolbox-export.svg?variant=ghost" /><img alt="Closed issues" src="https://shieldcn.dev/github/closed-issues/pratyay360/toolbox-export.svg?variant=ghost&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/open-prs/pratyay360/toolbox-export.svg?variant=secondary" /><img alt="Open PRs" src="https://shieldcn.dev/github/open-prs/pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/closed-prs/pratyay360/toolbox-export.svg?variant=ghost" /><img alt="Closed PRs" src="https://shieldcn.dev/github/closed-prs/pratyay360/toolbox-export.svg?variant=ghost&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/merged-prs/pratyay360/toolbox-export.svg?variant=ghost" /><img alt="Merged PRs" src="https://shieldcn.dev/github/merged-prs/pratyay360/toolbox-export.svg?variant=ghost&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/release/pratyay360/toolbox-export.svg" /><img alt="Release" src="https://shieldcn.dev/github/release/pratyay360/toolbox-export.svg?mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/pratyay360/toolbox-export.svg?variant=secondary" /><img alt="CI" src="https://shieldcn.dev/github/ci/pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/license/pratyay360/toolbox-export.svg?variant=ghost" /><img alt="License" src="https://shieldcn.dev/github/license/pratyay360/toolbox-export.svg?variant=ghost&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/stars/Pratyay360/toolbox-export.svg?variant=secondary" /><img alt="GitHub Stars" src="https://shieldcn.dev/github/stars/Pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/forks/Pratyay360/toolbox-export.svg?variant=secondary" /><img alt="GitHub Forks" src="https://shieldcn.dev/github/forks/Pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/watchers/Pratyay360/toolbox-export.svg?variant=secondary" /><img alt="Watchers" src="https://shieldcn.dev/github/watchers/Pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/branches/Pratyay360/toolbox-export.svg?variant=ghost" /><img alt="Branches" src="https://shieldcn.dev/github/branches/Pratyay360/toolbox-export.svg?variant=ghost&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/contributors/Pratyay360/toolbox-export.svg?theme=emerald" /><img alt="Contributors" src="https://shieldcn.dev/github/contributors/Pratyay360/toolbox-export.svg?theme=emerald&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/last-commit/Pratyay360/toolbox-export.svg?variant=secondary" /><img alt="Last commit" src="https://shieldcn.dev/github/last-commit/Pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/commits/Pratyay360/toolbox-export.svg?variant=secondary" /><img alt="Commits" src="https://shieldcn.dev/github/commits/Pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/open-issues/Pratyay360/toolbox-export.svg?variant=secondary" /><img alt="Open issues" src="https://shieldcn.dev/github/open-issues/Pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/closed-issues/Pratyay360/toolbox-export.svg?variant=ghost" /><img alt="Closed issues" src="https://shieldcn.dev/github/closed-issues/Pratyay360/toolbox-export.svg?variant=ghost&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/open-prs/Pratyay360/toolbox-export.svg?variant=secondary" /><img alt="Open PRs" src="https://shieldcn.dev/github/open-prs/Pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/closed-prs/Pratyay360/toolbox-export.svg?variant=ghost" /><img alt="Closed PRs" src="https://shieldcn.dev/github/closed-prs/Pratyay360/toolbox-export.svg?variant=ghost&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/merged-prs/Pratyay360/toolbox-export.svg?variant=ghost" /><img alt="Merged PRs" src="https://shieldcn.dev/github/merged-prs/Pratyay360/toolbox-export.svg?variant=ghost&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/release/Pratyay360/toolbox-export.svg" /><img alt="Release" src="https://shieldcn.dev/github/release/Pratyay360/toolbox-export.svg?mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/Pratyay360/toolbox-export.svg?variant=secondary" /><img alt="CI" src="https://shieldcn.dev/github/ci/Pratyay360/toolbox-export.svg?variant=secondary&mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/license/Pratyay360/toolbox-export.svg?variant=ghost" /><img alt="License" src="https://shieldcn.dev/github/license/Pratyay360/toolbox-export.svg?variant=ghost&mode=light" /></picture>
 </p>
 
 ## Overview
@@ -29,14 +29,14 @@
 
 ## Installation
 
-Download and extract the Linux archive for your architecture from [GitHub Releases](https://github.com/pratyay360/toolbox-export/releases):
+Download and extract the Linux archive for your architecture from [GitHub Releases](https://github.com/Pratyay360/toolbox-export/releases):
 
 ```bash
 curl -sf http://goblin.run/github.com/Pratyay360/toolbox-export | PREFIX=~/.local/bin sh
 ```
 
 ```bash
-mise github:pratyay360/toolbox-export@latest
+mise github:Pratyay360/toolbox-export@latest
 ```
 
 ```bash
@@ -44,7 +44,7 @@ go install github.com/Pratyay360/toolbox-export@latest
 ```
 
 ```bash
-stew s pratyay360/toolbox-export
+stew s Pratyay360/toolbox-export
 ```
 
 ```bash
@@ -56,7 +56,7 @@ curl -fSsL https://raw.githubusercontent.com/Pratyay360/toolbox-export/refs/head
 
 
 
-eget pratyay360/toolbox-export
+eget Pratyay360/toolbox-export
 ```
 
 ### Usage
