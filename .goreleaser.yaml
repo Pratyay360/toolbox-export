@@ -28,7 +28,6 @@ builds:
 
 archives:
   - formats: [tar.gz]
-    # this name template makes the OS and Arch compatible with the results of `uname`.
     name_template: >-
       {{ .ProjectName }}_
       {{- title .Os }}_
@@ -36,6 +35,16 @@ archives:
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
       {{- if .Arm }}v{{ .Arm }}{{ end }}
+
+homebrew_casks:
+  - name: toolbox-export
+    repository:
+      owner: pratyay360
+      name: homebrew-tap
+      branch: main
+    description: Make applications installed inside Toolbx containers available on the host
+    homepage: https://github.com/Pratyay360/toolbox-export
+
 
 changelog:
   sort: asc

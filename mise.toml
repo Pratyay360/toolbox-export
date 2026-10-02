@@ -10,7 +10,7 @@ build = { description = "Build Go binary", run = ["mise deps", "mise run fetch",
 test = { description = "test binary", run = ["mise deps", "mise run testcase", "mise run build"] }
 testcases = { description = "Run Go test cases", run = "go test ./..." }
 release = { description = "Build and release using Goreleaser", run = "goreleaser release --clean" }
-
+brew = { description = "Build and install using Homebrew", run = "podman run -it docker.io/homebrew/brew:latest /bin/sh" }
 
 [deps]
 go = { auto = true }
