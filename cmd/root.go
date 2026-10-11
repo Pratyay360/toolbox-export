@@ -1,5 +1,5 @@
 /*
-Copyright © 2026 Pratyay360
+Copyright © 2026 Pratyay360 <pratyaymustafi@outlook.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -22,7 +22,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var logLevel string
+var (
+	logLevel string
+	rmFlag   bool
+)
 
 // rootCmd runs both exports by default, mirroring the old toolbox-export.sh.
 var rootCmd = &cobra.Command{
@@ -32,14 +35,20 @@ var rootCmd = &cobra.Command{
 container) so they can be launched from the host.
 
 Running it without a subcommand exports both the desktop launcher and the
-binary wrapper for the given application.`,
-	Args: cobra.ArbitraryArgs,
+binary wrapper for the given application. Pass --rm / -r to remove an exported app.`,
+	Args: cobra.ExactArgs(1),
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 		utils.SetupLogger(os.Stderr, logLevel)
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		app := firstArg(args)
+		app := args[0]
+		if rmFlag {
+			if err := utils.RemoveExported(app); err != nil {
+				utils.Error(err)
+			}
+			return nil
+		}
 		if err := utils.ExportLauncher(app); err != nil {
 			utils.Error(err)
 		}
@@ -67,6 +76,7 @@ func firstArg(args []string) string {
 
 func init() {
 	rootCmd.PersistentFlags().StringVarP(&logLevel, "log-level", "l", "info", "log level (trace, debug, info, warn, error)")
+	rootCmd.Flags().BoolVarP(&rmFlag, "rm", "r", false, "remove a previously exported application")
 	rootCmd.AddCommand(exportCmd)
 	rootCmd.AddCommand(binaryCmd)
 }

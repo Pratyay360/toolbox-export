@@ -58,18 +58,13 @@ curl -fSsL https://raw.githubusercontent.com/Pratyay360/toolbox-export/refs/head
 
 ### Usage
 
-run
-
-```sh
-toolbox-export init
-```
-
-to let the tool setup things for you. it's performing some actions on your behalf.
+To let the tool setup things for you. it's performing some actions on your behalf.
 
 creating a directory $$HOME/.local/toolbox$ if not exist and add that to `PATH` variable. Some operations can be performed like.
 
 ```sh
 toolbox-export <app name> (creates both binary and desktop entry wrapper)
+toolbox-export -r / --rm <appname> (removes both binary and desktop entry wrapper)
 ```
 
 ## License
