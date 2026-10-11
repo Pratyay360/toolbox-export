@@ -54,9 +54,6 @@ mise install go:github.com/Pratyay360/toolbox-export@latest
 ```bash
 curl -fSsL https://raw.githubusercontent.com/Pratyay360/toolbox-export/refs/heads/main/install.sh | sh
 
-
-
-eget Pratyay360/toolbox-export
 ```
 
 ### Usage
