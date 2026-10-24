@@ -40,7 +40,7 @@ func ExportLauncher(app string) error {
 		if err != nil {
 			continue
 		}
-		text := ""
+		var text strings.Builder
 		for _, line := range lines {
 			if strings.HasPrefix(line, "Icon=") {
 				parts := strings.Split(line, "=")
@@ -56,22 +56,22 @@ func ExportLauncher(app string) error {
 			switch {
 			case strings.HasPrefix(line, "Exec=") && strings.Contains(line, app):
 				name, _ := GetContainerName()
-				text += strings.ReplaceAll(line, "Exec=", fmt.Sprintf("Exec=/usr/bin/toolbox run -c %s ", name))
+				text.WriteString(strings.ReplaceAll(line, "Exec=", fmt.Sprintf("Exec=/usr/bin/toolbox run -c %s ", name)))
 			case strings.HasPrefix(line, "TryExec="):
 				value := ""
 				if parts := strings.SplitN(line, "=", 2); len(parts) > 1 {
 					value = strings.TrimSpace(parts[1])
 				}
-				text += fmt.Sprintf("TryExec=%s\n", path.Base(value))
+				fmt.Fprintf(&text, "TryExec=%s\n", path.Base(value))
 			case strings.HasPrefix(line, "Name="):
-				text += strings.ReplaceAll(line, "\n", " (toolbox)\n")
+				text.WriteString(strings.ReplaceAll(line, "\n", " (toolbox)\n"))
 			default:
-				text += line
+				text.WriteString(line)
 			}
 		}
 
 		fileName := filepath.Join(desktopDir, path.Base(file))
-		if err := os.WriteFile(fileName, []byte(text), 0o644); err != nil {
+		if err := os.WriteFile(fileName, []byte(text.String()), 0o644); err != nil {
 			return err
 		}
 		Info(fmt.Sprintf("Exported desktop file: %s", fileName))
@@ -148,7 +148,7 @@ func getDesktopFiles(app string) ([]string, error) {
 
 func execLaunchesApp(line, app string) bool {
 	value := strings.TrimPrefix(strings.TrimSpace(line), "Exec=")
-	for _, word := range strings.Fields(value) {
+	for word := range strings.FieldsSeq(value) {
 		word = strings.Trim(word, `"'`)
 		if word != "" && path.Base(word) == app {
 			return true

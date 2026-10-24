@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 
 	"charm.land/lipgloss/v2"
@@ -62,8 +63,6 @@ var (
 			Italic(true)
 )
 
-// promptArtifact prompts the user whether to remove a specific file.
-// Returns "yes", "no", "all", or "quit".
 func promptArtifact(art artifact, reader *bufio.Reader) string {
 	var kindTag string
 	switch art.kind {
@@ -102,7 +101,6 @@ func promptArtifact(art artifact, reader *bufio.Reader) string {
 	}
 }
 
-// findArtifacts locates all desktop files, icons, and binary wrappers exported for app.
 func findArtifacts(home, app string) ([]artifact, error) {
 	var artifacts []artifact
 	seen := make(map[string]bool)
@@ -114,8 +112,6 @@ func findArtifacts(home, app string) ([]artifact, error) {
 		}
 	}
 
-	// 1. Desktop files: Must be exported by toolbox (Exec contains "toolbox run")
-	// and actually launch the specific app (via execLaunchesApp).
 	desktopDir := filepath.Join(home, ".local", "share", "applications")
 	pattern := filepath.Join(desktopDir, "*.desktop")
 	matches, _ := filepath.Glob(pattern)
@@ -153,8 +149,6 @@ func findArtifacts(home, app string) ([]artifact, error) {
 		}
 	}
 
-	// 2. Icon files: Only inspect the root of ~/.local/share/icons
-	// because toolbox-export copies icons directly there (never into theme subdirs).
 	iconDir := filepath.Join(home, ".local", "share", "icons")
 	if entries, err := os.ReadDir(iconDir); err == nil {
 		for _, entry := range entries {
@@ -166,11 +160,8 @@ func findArtifacts(home, app string) ([]artifact, error) {
 
 			isMatch := (baseNoExt == app)
 			if !isMatch {
-				for _, iconName := range iconNames {
-					if baseNoExt == iconName {
-						isMatch = true
-						break
-					}
+				if slices.Contains(iconNames, baseNoExt) {
+					isMatch = true
 				}
 			}
 
@@ -180,7 +171,6 @@ func findArtifacts(home, app string) ([]artifact, error) {
 		}
 	}
 
-	// 3. Binary wrapper: Located in ~/.local/toolbox/<app> and must be a toolbox wrapper
 	binPath := filepath.Join(home, ".local", "toolbox", app)
 	if data, err := os.ReadFile(binPath); err == nil {
 		if strings.Contains(string(data), "toolbox") {
@@ -191,8 +181,6 @@ func findArtifacts(home, app string) ([]artifact, error) {
 	return artifacts, nil
 }
 
-// RemoveExported prompts the user for each exported artifact found for app
-// and removes the confirmed files.
 func RemoveExported(app string) error {
 	if app == "" {
 		return errors.New("no application name provided; usage: toolbox-export --rm <application>")

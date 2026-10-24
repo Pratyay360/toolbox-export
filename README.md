@@ -1,7 +1,7 @@
 <p align="center">
   <img
     alt="toolbox-export"
-    src="https://shieldcn.dev/header/gradient.svg?title=toolbox-export&subtitle=Improved+usability+for+applications+installed+inside+toolbx+containers&mode=dark"
+    src="https://shieldcn.dev/header/gradient.svg?title=toolbox-export&subtitle=Making+life+easier+working+with+toolbox+containers&mode=dark"
   />
 </p>
 
@@ -25,47 +25,36 @@
 
 ## Overview
 
-`toolbox-export` makes applications installed inside a [Toolbx](https://containertoolbx.org/) container available on your Linux host. Export desktop launchers, icons, and command-line wrappers while keeping applications in the container.
+toolbox-export makes working with applications installed inside a Toolbox container easier. Export desktop launchers, icons, and command-line wrappers while keeping applications in the container.
 
 ## Installation
 
 Download and extract the Linux archive for your architecture from [GitHub Releases](https://github.com/Pratyay360/toolbox-export/releases):
 
 ```bash
-curl -sf http://goblin.run/github.com/Pratyay360/toolbox-export | PREFIX=~/.local/bin sh
+curl -fSsL https://raw.githubusercontent.com/Pratyay360/toolbox-export/refs/heads/main/install.sh | sh
 ```
 
 ```bash
 mise github:Pratyay360/toolbox-export@latest
-```
-
-```bash
 go install github.com/Pratyay360/toolbox-export@latest
-```
-
-```bash
 stew s Pratyay360/toolbox-export
-```
-
-```bash
 mise install go:github.com/Pratyay360/toolbox-export@latest
+curl -sf http://goblin.run/github.com/Pratyay360/toolbox-export | PREFIX=~/.local/bin sh
 ```
+
+## Usage
+
+Toolbox-export is a batteries-included utility. It performs all the necessary actions on your behalf.
 
 ```bash
-curl -fSsL https://raw.githubusercontent.com/Pratyay360/toolbox-export/refs/heads/main/install.sh | sh
+toolbox-export init (initializes toolbox-export in your home directory)
+toolbox-export <app name> (creates both binary and desktop entry wrapper; automatically manages all the necessary cases, like a CLI-only application or a GUI application)
 
-```
-
-### Usage
-
-To let the tool setup things for you. it's performing some actions on your behalf.
-
-creating a directory $$HOME/.local/toolbox$ if not exist and add that to `PATH` variable. Some operations can be performed like.
-
-```sh
-toolbox-export <app name> (creates both binary and desktop entry wrapper)
 toolbox-export -r / --rm <appname> (removes both binary and desktop entry wrapper)
 ```
+
+Toolbox containers run the application in a sandboxed environment. This is one of the most developer friendly ways to run and test applications.
 
 ## License
 

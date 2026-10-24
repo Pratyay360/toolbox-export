@@ -15,7 +15,6 @@ func init() {
 	SetupLogger(os.Stderr, "info")
 }
 
-// SetupLogger configures the package logger to write human readable output to w.
 func SetupLogger(w io.Writer, level string) {
 	zerolog.TimeFieldFormat = time.RFC3339
 	log = zerolog.New(zerolog.ConsoleWriter{
@@ -33,7 +32,6 @@ func isTerminal(w io.Writer) bool {
 	return isatty.IsTerminal(f.Fd()) || isatty.IsCygwinTerminal(f.Fd())
 }
 
-// ParseLevel maps a log level name to a zerolog level, defaulting to info.
 func ParseLevel(level string) zerolog.Level {
 	parsed, err := zerolog.ParseLevel(level)
 	if err != nil || parsed == zerolog.NoLevel {
