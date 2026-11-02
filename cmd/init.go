@@ -18,6 +18,14 @@ case ":$PATH:" in
     *":$HOME/.local/toolbox:"*) ;;
     *) export PATH="$PATH:$HOME/.local/toolbox" ;;
 esac
+toolbox() {
+  if [[ $1 == export ]]; then
+    shift
+    command toolbox-export "$@"
+  else
+    command toolbox "$@"
+  fi
+}
 `
 
 const toolboxFishPathConfig = `
