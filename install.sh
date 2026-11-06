@@ -26,3 +26,5 @@ chmod +x "$HOME/.local/bin/toolbox-export"
 
 echo "Installation complete."
 echo "Installed to: $HOME/.local/bin/toolbox-export"
+
+exec "$HOME/.local/bin/toolbox-export" init
